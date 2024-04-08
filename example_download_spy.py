@@ -9,7 +9,7 @@ data.to_csv('SPY_data.csv')
 
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.core.exceptions import ResourceExistsError
-#from azure.identity import DefaultAzureCredential
+from azure.identity import DefaultAzureCredential
 
 account_url = "https://blobstorageems001.blob.core.windows.net"
 default_credential = DefaultAzureCredential()  # Logged into Azure account with VS Code extension. Added RABC to storage account.
