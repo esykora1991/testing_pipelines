@@ -1,7 +1,7 @@
 import yfinance as yf
 
 # Download SPY data from the last year
-data = yf.download('SPY', start='2020-01-01', end='2023-01-01')
+data = yf.download('SPY', start='2021-01-01', end='2023-01-01')
 
 # Save data to a CSV file
 data.to_csv('SPY_data.csv')
