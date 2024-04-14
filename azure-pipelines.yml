@@ -6,6 +6,14 @@
 trigger:
 - None
 
+schedules:
+- cron: "0 10 * * *"
+  displayName: Daily build
+  branches:
+    include:
+    - master
+  always: true
+
 pool:
   vmImage: ubuntu-latest
 
