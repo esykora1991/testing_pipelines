@@ -4,15 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- None
+  none  # Disables CI triggers on commits if only scheduled runs are needed
 
 schedules:
-- cron: "0 14 * * *"
-  displayName: Daily build
-  branches:
-    include:
-    - master
-  always: true
+  - cron: "15 14 * * *"
+    displayName: "Daily build at 1415 UTC "
+    branches:
+      include:
+        - main  # Specify the branch to build
+    always: true  # `true` means the schedule runs even if there are no code changes
 
 pool:
   vmImage: ubuntu-latest
