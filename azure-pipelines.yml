@@ -21,6 +21,18 @@ steps:
     pip install -r requirements.txt  # Install dependencies from requirements.txt
   displayName: 'Install Dependencies'
 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'smartmoney_service_connection'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az account show
+            export AZURE_CLIENT_ID=$(az account show --query id -o tsv)
+            export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
+            export AZURE_CLIENT_SECRET=$(az account show --query user.name -o tsv)
+  displayName: 'Get Service Principle Login Details'
+
 - script: |
     python example_download_spy.py
   displayName: 'Run Python Script'
