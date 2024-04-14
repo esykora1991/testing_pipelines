@@ -28,9 +28,9 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az account show
-      export AZURE_CLIENT_ID=$(az account show --query id -o tsv)
-      export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
-      export AZURE_CLIENT_SECRET=$(az account show --query user.name -o tsv)
+      export AZURE_CLIENT_ID=$(CLIENTID)
+      export AZURE_TENANT_ID=$(TENANTID)
+      export AZURE_CLIENT_SECRET=$(CLIENTSECRET)
       python example_download_spy.py
   displayName: 'Get Service Principle and Run Python Script'
 
