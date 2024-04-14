@@ -28,11 +28,12 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az account show
-            export AZURE_CLIENT_ID=$(az account show --query id -o tsv)
-            export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
-            export AZURE_CLIENT_SECRET=$(az account show --query user.name -o tsv)
-  displayName: 'Get Service Principle Login Details'
+      export AZURE_CLIENT_ID=$(az account show --query id -o tsv)
+      export AZURE_TENANT_ID=$(az account show --query tenantId -o tsv)
+      export AZURE_CLIENT_SECRET=$(az account show --query user.name -o tsv)
+      python example_download_spy.py
+  displayName: 'Get Service Principle and Run Python Script'
 
-- script: |
-    python example_download_spy.py
-  displayName: 'Run Python Script'
+#- script: |
+#    python example_download_spy.py
+#  displayName: 'Run Python Script'
